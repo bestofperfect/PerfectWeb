@@ -1,16 +1,7 @@
-<<<<<<< Updated upstream
-var express= require("express");
-
-app.get("/", function(req, res){
-    app.render("index.html");
-=======
 
 const express= require("express");
 const bodyParser=require("body-parser");
-const exphbs=require("express-handlebars");
-const path=require("path");
 const nodemailer=require("nodemailer");
-var msg;
 const app=express();
 
 // app.use(express.static("views"));
@@ -33,7 +24,6 @@ app.use(bodyParser.json());
 
 app.get("/", function(req, res){
     res.render("contact");
->>>>>>> Stashed changes
 });
 
 app.post('/send',function(req,res){
@@ -64,15 +54,15 @@ async function main(){
     port: 465,
     secure: true, // true for 465, false for other ports
     auth: {
-      user: 'email username', // generated ethereal user
-      pass: 'email password' // generated ethereal password
+      user: 'perfectp335@gmail.com', // generated ethereal user
+      pass: 'Per@bestof3' // generated ethereal password
     }
   });
 
   // send mail with defined transport object
   let info = await transporter.sendMail({
     from: '"Fred Foo 👻" <foo@example.com>', // sender address
-    to: "elad1478@gmail.com", // list of receivers
+    to: "perfectp335@gmail.com", // list of receivers
     subject: "Node contact Request", // Subject line
     text: "Hello world?", // plain text body
     html: output // html body
@@ -84,7 +74,7 @@ async function main(){
   // Preview only available when sending through an Ethereal account
   console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
-  res.render('contact',{msg:'email has ben sent'});
+  res.render('contact');
 }
 
 main().catch(console.error);
